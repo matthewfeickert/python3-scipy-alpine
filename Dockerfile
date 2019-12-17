@@ -5,6 +5,7 @@ RUN apk --no-cache add --virtual \
       gcc \
       gfortran \
       musl-dev && \
+    python -m pip install --no-cache-dir --upgrade pip setuptools wheel && \
     python -m pip install --no-cache-dir numpy==1.17.4 && \
     apk del .builddeps && \
     rm -rf /root/.cache
@@ -18,6 +19,7 @@ RUN apk --no-cache add \
       gfortran \
       musl-dev \
       lapack-dev && \
-    python -m pip install scipy==1.4.0 && \
+    python -m pip install --no-cache-dir --upgrade pip setuptools wheel && \
+    python -m pip install --no-cache-dir scipy==1.4.0 && \
     apk del .builddeps && \
     rm -rf /root/.cache
