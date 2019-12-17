@@ -4,9 +4,9 @@ RUN apk --no-cache add --virtual \
       .builddeps \
       gcc \
       gfortran \
-      musl-dev && \
+      musl-dev \
+      py3-numpy && \
     python -m pip install --no-cache-dir --upgrade pip setuptools wheel && \
-    python -m pip install --no-cache-dir numpy==1.17.4 && \
     apk del .builddeps && \
     rm -rf /root/.cache
 RUN apk --no-cache add \
@@ -18,8 +18,7 @@ RUN apk --no-cache add \
       gcc \
       gfortran \
       musl-dev \
-      lapack-dev && \
-    python -m pip install --no-cache-dir --upgrade pip setuptools wheel && \
-    python -m pip install --no-cache-dir --no-binary :all: scipy==1.4.0 && \
-    apk del .builddeps && \
+      lapack-dev \
+      py3-scipy && \
     rm -rf /root/.cache
+ENV PYTHONPATH=/usr/lib/python3.7/site-packages
