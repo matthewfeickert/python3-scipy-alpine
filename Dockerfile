@@ -1,10 +1,9 @@
 FROM python:3.7-alpine3.10
 
-RUN apk --no-cache add \
-      lapack \
-      libstdc++ && \
-    apk --no-cache add --virtual \
+RUN apk --no-cache add --virtual \
       .builddeps \
+      lapack \
+      libstdc++ \
       g++ \
       gcc \
       gfortran \
