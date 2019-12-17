@@ -1,0 +1,19 @@
+name: CI/CD
+
+on:
+  push:
+  pull_request:
+  # Run daily at 0:01 UTC
+  schedule:
+  - cron:  '1 0 * * *'
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1.2.0
+    - name: Build Docker image
+      run: |
+        docker build . --file Dockerfile --tag python3-scipy-alpine:$GITHUB_SHA
