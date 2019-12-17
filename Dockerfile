@@ -1,14 +1,5 @@
 FROM python:3.7-alpine3.10
 
-RUN apk --no-cache add --virtual \
-      .builddeps \
-      gcc \
-      gfortran \
-      musl-dev \
-      py3-numpy && \
-    python -m pip install --no-cache-dir --upgrade pip setuptools wheel && \
-    apk del .builddeps && \
-    rm -rf /root/.cache
 RUN apk --no-cache add \
       lapack \
       libstdc++ && \
@@ -20,5 +11,6 @@ RUN apk --no-cache add \
       musl-dev \
       lapack-dev \
       py3-scipy && \
+    python -m pip install --no-cache-dir --upgrade pip setuptools wheel && \
     rm -rf /root/.cache
 ENV PYTHONPATH=/usr/lib/python3.7/site-packages
