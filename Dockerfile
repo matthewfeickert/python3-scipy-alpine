@@ -20,6 +20,6 @@ RUN apk --no-cache add \
       musl-dev \
       lapack-dev && \
     python -m pip install --no-cache-dir --upgrade pip setuptools wheel && \
-    python -m pip install --no-cache-dir --no-binary scipy==1.4.0 && \
+    python -m pip install --no-cache-dir --no-binary :all: scipy==1.4.0 && \
     apk del .builddeps && \
     rm -rf /root/.cache
