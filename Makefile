@@ -6,5 +6,5 @@ image:
 	docker build -f Dockerfile \
 	--cache-from matthewfeickert/python3-scipy-alpine:latest \
 	-t matthewfeickert/python3-scipy-alpine:latest \
-	-t matthewfeickert/python3-scipy-alpine:scipy-1.4.0 \
+	-t matthewfeickert/python3-scipy-alpine:scipy-1.2.1 \
 	--compress .
